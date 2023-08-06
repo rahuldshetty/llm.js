@@ -13,3 +13,18 @@ export function loadBinaryResource(url, callback) {
 
     req.send(null);
 }
+
+// Regex rule to remove model output from ggml scritps
+const MODEL_DEBUG_PATTERN = [
+    /main:.*/,
+    /.*_model_load:.*/
+]
+
+export const is_model_output = (text) => {
+    for(var i = 0; i < MODEL_DEBUG_PATTERN.length; i = i + 1){
+        if(MODEL_DEBUG_PATTERN[i].test(text)){
+            return false
+        }
+    }
+    return true;
+}

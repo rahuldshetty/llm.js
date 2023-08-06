@@ -7,16 +7,26 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default  {
-  entry: path.resolve(__dirname, "src/ggml.js"),
+  // entry: path.resolve(__dirname, "src/ggml.js"),
+  entry:{
+    'ggml': path.resolve(__dirname, "src/ggml.js"),
+  },
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "ggml.js",
+    // filename: "ggml.js",
+    filename: '[name].js',
     library: {
       type: "module",
     },
   },
   externals: {
-    "workers": "./workers"
+    "dollyv2": "./wasm/dollyv2.js",
+    "gpt-2": "./wasm/gpt-2.js",
+    "gpt-j": "./wasm/gpt-j.js",
+    "gpt-neox": "./wasm/gpt-neox.js",
+    "mpt": "./wasm/mpt.js",
+    "replit": "./wasm/replit.js",
+    "starcoder": "./wasm/starcoder.js",
   },
   module: {
     rules: [
@@ -33,7 +43,7 @@ export default  {
             patterns: [
                 {
                     from: 'build/bin/bin/*.js',
-                    to: 'workers/[name].js'
+                    to: 'wasm/[name].js'
                 },
             ],
         }),

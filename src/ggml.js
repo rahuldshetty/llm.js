@@ -1,6 +1,6 @@
 import {action} from "./actions.js";
 
-import { MODELS, MODEL_WORKER } from "./models.js";
+import * as models from "./models.js" ;
 
 class GGML{
     // callback have to be defined before load_worker
@@ -19,10 +19,65 @@ class GGML{
     }
     
     load_worker() {
-        this.worker = new Worker(
-            new URL(MODEL_WORKER[this.type], import.meta.url)
-            , {type: 'module'}
-        );
+        switch(this.type){
+            case models.MODELS.DOLLY_V2: {
+                this.worker = new Worker(
+                    // Webpack doesn't like variable/const to hold paths. Don't know why
+                    new URL("./web-workers/dollyv2-worker.js", import.meta.url)
+                    , {type: 'module'}
+                );
+                break;
+            }
+
+            case models.MODELS.GPT_2: {
+                this.worker = new Worker(
+                    new URL("./web-workers/gpt2-worker.js", import.meta.url)
+                    , {type: 'module'}
+                );
+                break;
+            }
+
+            case models.MODELS.GPT_J: {
+                this.worker = new Worker(
+                    new URL("./web-workers/gptj-worker.js", import.meta.url)
+                    , {type: 'module'}
+                );
+                break;
+            }
+
+            case models.MODELS.GPT_NEO_X: {
+                this.worker = new Worker(
+                    new URL("./web-workers/gptneox-worker.js", import.meta.url)
+                    , {type: 'module'}
+                );
+                break;
+            }
+
+            case models.MODELS.MPT: {
+                this.worker = new Worker(
+                    new URL("./web-workers/mpt-worker.js", import.meta.url)
+                    , {type: 'module'}
+                );
+                break;
+            }
+
+            case models.MODELS.REPLIT: {
+                this.worker = new Worker(
+                    new URL("./web-workers/replit-worker.js", import.meta.url)
+                    , {type: 'module'}
+                );
+                break;
+            }
+
+            case models.MODELS.STARCODER: {
+                this.worker = new Worker(
+                    new URL("./web-workers/starcoder-worker.js", import.meta.url)
+                    , {type: 'module'}
+                );
+                break;
+            }
+        }
+        
 
         this.worker.onmessage = (event) => {
             switch (event.data.event) {

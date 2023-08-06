@@ -1,6 +1,7 @@
 import {action} from "../actions.js";
-import Module from "workers/dollyv2.js";
-import {loadBinaryResource} from "../utility.js"
+import Module from "gpt-2";
+import {loadBinaryResource, is_model_output} from "../utility.js"
+
 
 // WASM Module
 let module;
@@ -11,10 +12,12 @@ const model_path = "/models/model.bin";
 const write_result_fn = (text) => {
     // console.log('worker:' + text);
     console.log('model:' + text)
-    postMessage({
-      event: action.WRITE_RESULT,
-      line: text
-    });
+    if(is_model_output(text)){
+        postMessage({
+            event: action.WRITE_RESULT,
+            line: text
+        });
+    }
 }
 
 

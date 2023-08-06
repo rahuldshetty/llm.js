@@ -33,3 +33,4 @@ zig-cache/
 *.sw?
 
 node_modules/
+dist/
