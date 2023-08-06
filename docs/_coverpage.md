@@ -2,7 +2,7 @@
 
 # ggml.js <small>1.0.0</small>
 
-> Run any [ggml](https://github.com/ggerganov/ggml.git) ported models directly from your browser
+> Run any [ggml](https://github.com/ggerganov/ggml.git) ported ML models directly on your browser
 
 - Serverless & Edge AI
 - JavaScript ES6 Package

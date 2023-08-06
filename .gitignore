@@ -34,3 +34,4 @@ zig-cache/
 
 node_modules/
 dist/
+releases/

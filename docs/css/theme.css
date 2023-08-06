@@ -1,0 +1,22 @@
+/* Cover
+============================================================================= */
+:root {
+    --cover-color                                      : ;
+
+    /* Background */
+    --cover-background-blend-mode                      : ;
+    --cover-background-color                           : var(--base-background-color);
+    --cover-background-image                           : ;
+    --cover-background-mask-color                      : var(--base-background-color);
+    --cover-background-mask-opacity                    : 0.8;
+    --cover-background-mask-visibility                 : ;
+    --cover-background-position                        : center center;
+    --cover-background-repeat                          : no-repeat;
+    --cover-background-size                            : cover;
+
+    --cover-heading-color                              : var(--theme-color);
+    --cover-heading-font-size                          : var(--font-size-xxl);
+    --cover-heading-font-size-min                      : ;
+    --cover-heading-font-size-max                      : ;
+    --cover-heading-font-weight                        : normal;
+}
