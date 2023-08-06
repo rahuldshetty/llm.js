@@ -23,7 +23,6 @@ class GGML{
             new URL(MODEL_WORKER[this.type], import.meta.url)
             , {type: 'module'}
         );
-        
 
         this.worker.onmessage = (event) => {
             switch (event.data.event) {
