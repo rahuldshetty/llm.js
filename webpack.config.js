@@ -16,7 +16,7 @@ export default  {
     },
   },
   externals: {
-    "main": "./main.js"
+    "workers": "./workers"
   },
   module: {
     rules: [
@@ -32,13 +32,9 @@ export default  {
         new CopyWebpackPlugin({
             patterns: [
                 {
-                    from: 'build/main.js',
-                    to: 'main.js'
+                    from: 'build/bin/bin/*.js',
+                    to: 'workers/[name].js'
                 },
-              //   {
-              //     from: 'build/main.wasm',
-              //     to: 'main.wasm'
-              // },
             ],
         }),
     ],

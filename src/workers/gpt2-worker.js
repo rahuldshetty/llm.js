@@ -1,5 +1,5 @@
 import {action} from "../actions.js";
-import Module from "../../build/bin/bin/gpt-2.js";
+import Module from "workers/gpt-2.js";
 import {loadBinaryResource} from "../utility.js"
 
 // WASM Module

@@ -1,5 +1,5 @@
 import {action} from "../actions.js";
-import Module from "../../build/bin/bin/replit.js";
+import Module from "workers/replit.js";
 import {loadBinaryResource} from "../utility.js"
 
 // WASM Module

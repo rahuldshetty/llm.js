@@ -1,5 +1,5 @@
 import {action} from "../actions.js";
-import Module from "../../build/bin/bin/starcoder.js";
+import Module from "workers/starcoder.js";
 import {loadBinaryResource} from "../utility.js"
 
 // WASM Module

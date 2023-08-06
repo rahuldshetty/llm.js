@@ -1,5 +1,5 @@
 import {action} from "../actions.js";
-import Module from "../../build/bin/bin/mpt.js";
+import Module from "workers/mpt.js";
 import {loadBinaryResource} from "../utility.js"
 
 // WASM Module

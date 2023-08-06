@@ -1,5 +1,5 @@
 import {action} from "../actions.js";
-import Module from "../../build/bin/bin/gpt-neox.js";
+import Module from "workers/gpt-neox.js";
 import {loadBinaryResource} from "../utility.js"
 
 // WASM Module
