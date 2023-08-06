@@ -71,7 +71,7 @@ def fibonacci(</textarea
     </div>
 
     <script type="module">
-        import {GGML} from "./ggml.js";
+        import {GGML} from "../src/ggml.js";
 
         let submitButton = document.getElementById('submitBtn');
         let outputElement = document.getElementById('output');
@@ -101,10 +101,9 @@ def fibonacci(</textarea
             submitButton.disabled = false;
         }
         
-        // '../models/tiny_starcoder_py-ggml-q8_0.bin',
-
         const app = new GGML(
-            '../models/gpt2.bin',
+            'STARCODER',
+            '../../models/starcoder.bin',
             on_loaded,
             write_result,
             run_complete

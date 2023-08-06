@@ -1,13 +1,17 @@
 import {action} from "./actions.js";
 
+import { MODELS, MODEL_WORKER } from "./models.js";
+
 class GGML{
     // callback have to be defined before load_worker
     constructor(
+        type,
         url,
         init_callback,
         write_result_callback,
         on_complete_callback,
     ){
+        this.type = type;
         this.url = url;
         this.init_callback = init_callback;   // called back when model is loaded
         this.write_result_callback = write_result_callback; // Expectes text parameter and will be called when model generates result.
@@ -16,7 +20,7 @@ class GGML{
     
     load_worker() {
         this.worker = new Worker(
-            new URL('./worker.js', import.meta.url)
+            new URL(MODEL_WORKER[this.type], import.meta.url)
             , {type: 'module'}
         );
         
