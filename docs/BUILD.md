@@ -2,8 +2,8 @@
 
 In order to build ggml.js, you need to have the following pre-requisites installed on your system:
 
-* [Emscripten](https://emscripten.org/docs/getting_started/downloads.html): Emscripten is a complete compiler toolchain to WebAssembly, using LLVM, with a special focus on speed, size, and the Web platform.
 * [CMake](https://cmake.org/download/): CMake is an open-source, cross-platform family of tools designed to build, test and package software.
+* [Emscripten](https://emscripten.org/docs/getting_started/downloads.html): Emscripten is a complete compiler toolchain to WebAssembly, using LLVM, with a special focus on speed, size, and the Web platform.
 * [Node JS](https://nodejs.org/it/download/current): Node.js is an open-source, cross-platform JavaScript runtime environment.
 
 ## Build WebAssembly bundles for GGML models

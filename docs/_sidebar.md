@@ -2,7 +2,7 @@
 
 * [Home](/)
 * [Quick Start](/quick_start.md)
-* [API](/api_guide.md)
+* [API Reference](/api_guide.md)
 * [Build](/BUILD.md)
 * [Examples](/examples.md)
 * [Changelog](changelog.md)

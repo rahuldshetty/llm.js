@@ -4,8 +4,8 @@
 
 > Run any [ggml](https://github.com/ggerganov/ggml.git) ported ML models directly on your browser
 
-- Serverless & Edge AI
-- JavaScript ES6 Package
+- Serverless & Edge AI 🤖
+- JavaScript ES6 Package 🧰
 
 [GitHub](https://github.com/rahuldshetty/ggml.js.git)
 [Get Started](#ggmljs)
