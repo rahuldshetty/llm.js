@@ -48,7 +48,7 @@ export default  {
             ],
         }),
     ],
-  mode: "development",
+  // mode: "development",
   experiments: {
     outputModule: true,
   },
