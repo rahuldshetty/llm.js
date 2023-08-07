@@ -35,7 +35,7 @@ Let us create a simple HTML file.
 </html>
 ```
 
-
+Let's define a JS script file to load model with ggml.js library and run ML inference on browser.
 
 `script.js`
 ```js

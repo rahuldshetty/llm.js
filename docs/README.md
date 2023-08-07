@@ -2,6 +2,10 @@
 
 Run any [ggml](https://github.com/ggerganov/ggml.git) ported ML models directly on your web browser with ggml.js
 
+ggml.js provides JavaScript bindings for interacting with GGML quantized ML models.
+
+Example projects built with ggml.js: [Live Demo](https://rahuldshetty.github.io/ggml.js-examples/)
+
 Models Supported:
 - [Dolly v2](https://github.com/ggerganov/ggml/tree/master/examples/dolly-v2) 
 - [GPT2](https://github.com/ggerganov/ggml/tree/master/examples/gpt-2)
@@ -11,7 +15,7 @@ Models Supported:
 - [Replit](https://github.com/ggerganov/ggml/tree/master/examples/replit)
 - [StarCoder](https://github.com/ggerganov/ggml/tree/master/examples/starcoder)
 
-
+*More models will be added in future*
 
 ## Installation
 
