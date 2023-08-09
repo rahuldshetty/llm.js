@@ -2,10 +2,15 @@ set -e
 
 BUILD_DIR=build
 
-GGML_HASH="627ed15"
+GGML_HASH="244776a"
 GGML_DIR=$BUILD_DIR/ggml
 
 TARGET_DIR=$BUILD_DIR/bin
+
+# Clear build directory
+if [ -d $BUILD_DIR ]; then
+    rm -r $BUILD_DIR
+fi
 
 # Clone ggml library
 if [ ! -d $GGML_DIR ]; then
