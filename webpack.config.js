@@ -32,7 +32,7 @@ export default  {
     rules: [
       {
         test: /\.(js)$/,
-        exclude: [/node_modules/, /\\build\\bin\\bin\\*\.js$/],
+        exclude: [/node_modules/, /\\build\\ggml-bin\\bin\\*\.js$/],
         use: 'babel-loader',
       }
     ]
@@ -42,7 +42,7 @@ export default  {
         new CopyWebpackPlugin({
             patterns: [
                 {
-                    from: 'build/bin/bin/*.js',
+                    from: 'build/ggml-bin/bin/*.js',
                     to: 'wasm/[name].js'
                 },
             ],
