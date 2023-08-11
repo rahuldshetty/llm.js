@@ -21,7 +21,7 @@ if [ ! -d $GGML_DIR ]; then
 
     # Apply patch
     echo "Applying patch..."
-    git apply ../../patches/00-disable-hardwares.patch
+    git apply ../../patches/00-ggml-hardware-disable.patch
 
     cd ../../ # move to root directory
 fi
