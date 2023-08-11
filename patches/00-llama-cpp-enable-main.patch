@@ -1,0 +1,29 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d085bc8..3c6ff31 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -584,6 +584,7 @@ if (LLAMA_BUILD_TESTS AND NOT CMAKE_JS_VERSION)
+ endif ()
+ 
+ if (LLAMA_BUILD_EXAMPLES)
+-    add_subdirectory(examples)
+     add_subdirectory(pocs)
+ endif()
++
++add_subdirectory(examples)
+diff --git a/examples/CMakeLists.txt b/examples/CMakeLists.txt
+index a7b2677..af5c190 100644
+--- a/examples/CMakeLists.txt
++++ b/examples/CMakeLists.txt
+@@ -31,9 +31,10 @@ target_link_libraries(${TARGET} PRIVATE llama)
+ 
+ include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+ 
++add_subdirectory(main)
++
+ if (EMSCRIPTEN)
+ else()
+-    add_subdirectory(main)
+     add_subdirectory(quantize)
+     add_subdirectory(quantize-stats)
+     add_subdirectory(perplexity)

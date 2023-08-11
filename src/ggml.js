@@ -76,6 +76,15 @@ class GGML{
                 );
                 break;
             }
+
+
+            case models.MODELS.LLAMA: {
+                this.worker = new Worker(
+                    new URL("./web-workers/llama-worker.js", import.meta.url)
+                    , {type: 'module'}
+                );
+                break;
+            }
         }
         
 

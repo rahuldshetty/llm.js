@@ -27,12 +27,14 @@ export default  {
     "mpt": "./wasm/mpt.js",
     "replit": "./wasm/replit.js",
     "starcoder": "./wasm/starcoder.js",
+
+    "llama": "./wasm/llama.js",
   },
   module: {
     rules: [
       {
         test: /\.(js)$/,
-        exclude: [/node_modules/, /\\build\\ggml-bin\\bin\\*\.js$/],
+        exclude: [/node_modules/, /\\build\\ggml-bin\\bin\\*\.js$/, /\\build\\llama-bin\\bin\\*\.js$/],
         use: 'babel-loader',
       }
     ]
@@ -45,6 +47,10 @@ export default  {
                     from: 'build/ggml-bin/bin/*.js',
                     to: 'wasm/[name].js'
                 },
+                {
+                  from: 'build/llama-bin/bin/main.js',
+                  to: 'wasm/llama.js'
+              },
             ],
         }),
     ],
