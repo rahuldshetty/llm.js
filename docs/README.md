@@ -7,6 +7,7 @@ ggml.js provides JavaScript bindings for interacting with GGML quantized ML mode
 Example projects built with ggml.js: [Live Demo](https://rahuldshetty.github.io/ggml.js-examples/)
 
 Models Supported:
+- [LLaMa 2](https://github.com/karpathy/llama2.c) 
 - [Dolly v2](https://github.com/ggerganov/ggml/tree/master/examples/dolly-v2) 
 - [GPT2](https://github.com/ggerganov/ggml/tree/master/examples/gpt-2)
 - [GPT J](https://github.com/ggerganov/ggml/tree/master/examples/gpt-j)
