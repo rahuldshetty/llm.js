@@ -10,12 +10,14 @@ class GGML{
         init_callback,
         write_result_callback,
         on_complete_callback,
+        tokenizer_url = null
     ){
         this.type = type;
         this.url = url;
         this.init_callback = init_callback;   // called back when model is loaded
         this.write_result_callback = write_result_callback; // Expectes text parameter and will be called when model generates result.
         this.on_complete_callback = on_complete_callback;
+        this.tokenizer_url = tokenizer_url
     }
     
     load_worker() {
@@ -85,6 +87,14 @@ class GGML{
                 );
                 break;
             }
+
+            case models.MODELS.LLAMA2: {
+                this.worker = new Worker(
+                    new URL("./web-workers/llama2-worker.js", import.meta.url)
+                    , {type: 'module'}
+                );
+                break;
+            }
         }
         
 
@@ -113,6 +123,7 @@ class GGML{
         this.worker.postMessage({
             event: action.LOAD,
             url: this.url,
+            tokenizer_url: this.tokenizer_url
         });
     }
 

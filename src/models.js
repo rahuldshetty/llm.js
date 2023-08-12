@@ -10,4 +10,5 @@ export const MODELS = {
 
     // llama.cpp
     LLAMA: 'LLAMA',
+    LLAMA2: 'LLAMA2'
 }

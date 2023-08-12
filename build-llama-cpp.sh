@@ -12,7 +12,7 @@ TARGET_DIR=$BUILD_DIR/llama-bin
 #     rm -r $BUILD_DIR
 # fi
 
-# Clone ggml library
+# Clone llama.cpp library
 if [ ! -d $LLAMA_DIR ]; then
     echo "Downloading llama.cpp repository..."
     git clone https://github.com/ggerganov/llama.cpp.git $LLAMA_DIR

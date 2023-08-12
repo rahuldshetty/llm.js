@@ -28,3 +28,7 @@ export const is_model_output = (text) => {
     }
     return true;
 }
+
+export const extract_file_name = (text) => {
+    return text.substring(text.lastIndexOf('/')+1);
+}
