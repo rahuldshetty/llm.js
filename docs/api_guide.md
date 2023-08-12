@@ -15,11 +15,12 @@ Model Initializer called during GGML object creation
 
 Parameter               | Description | Example
 ---                     |           ---               | ---
-type                    | Type of Model. <br> Values:<br>- DOLLY_V2<br>- GPT_2<br>- GPT_J<br>- GPT_NEO_X<br>- MPT<br>- REPLIT<br>- STARCODER  | 'STARCODER'
+type                    | Type of Model. <br> Values:<br>- LLAMA2<br>- DOLLY_V2<br>- GPT_2<br>- GPT_J<br>- GPT_NEO_X<br>- MPT<br>- REPLIT<br>- STARCODER  | 'STARCODER'
 url                     | Model URL | [./starcoder.bin](https://huggingface.co/rahuldshetty/ggml.js/resolve/main/starcoder.bin)
 init_callback           | Callback method to run after model initialization. | `() => { console.log('model loaded') }`
 write_result_callback   | Callback method to print model result. | `(text) => { console.log('model result:' + test) }`
 on_complete_callback    | Callback method to run after model run. | `() => { console.log('model execution completed') }`
+tokenizer_url    | Tokenizer URL (Support only for LLaMa2.c model) | [./tokenizer.url](https://huggingface.co/rahuldshetty/ggml.js/resolve/main/llama2/tokenizer.bin) (Default: null)
 
 Usage:
 ```js

@@ -10,13 +10,14 @@
 
 # ggml.js
 
-> Run any [ggml](https://github.com/ggerganov/ggml.git) ported ML models directly on your web browser with ggml.js
+> Run [ggml](https://github.com/ggerganov/ggml.git) & [llama2.c](https://github.com/karpathy/llama2.c) ML models directly on your web browser with ggml.js
 
 Example projects built with ggml.js: [Live Demo](https://rahuldshetty.github.io/ggml.js-examples/)
 
 You can find the package documentation for this project: [Documentation](https://rahuldshetty.github.io/ggml.js/) 
 
 Models Supported:
+- [LLaMa 2](https://github.com/karpathy/llama2.c)
 - [Dolly v2](https://github.com/ggerganov/ggml/tree/master/examples/dolly-v2) 
 - [GPT2](https://github.com/ggerganov/ggml/tree/master/examples/gpt-2)
 - [GPT J](https://github.com/ggerganov/ggml/tree/master/examples/gpt-j)
