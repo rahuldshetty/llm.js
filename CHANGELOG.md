@@ -6,8 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [1.0.1]
 
+### Added
+
+- Added support for [llama2.c](https://github.com/karpathy/llama2.c) models
+
 ### Changed
 
+- Added *tokenizer_url* parameter in GGML Wrapper for supporting LLaMa2.  
 - Upgraded ggml version to [244776a](https://github.com/ggerganov/ggml/commit/244776a089ebed7f0332f9c8bdc38d2d40464493)
 
 ## [1.0.0]
