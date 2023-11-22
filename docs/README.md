@@ -1,8 +1,8 @@
-# llm.js
+# LLM.js
 
 Run Large-Language Models (LLMs) 🚀 directly in your browser!
 
-llm.js provides JavaScript bindings for interacting with quantized large language models (GGUF/GGML/tiny-llama2).
+LLM.js provides JavaScript bindings for interacting with quantized large language models (GGUF/GGML/tiny-llama2).
 
 Example projects🌐✨: [Live Demo](https://rahuldshetty.github.io/ggml.js-examples/)
 
