@@ -14,7 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ### Changed
 
-- Rebranded project to "ML.JS".
+- Rebranded project to "LLM.JS".
 - Removed *STACK_SIZE* flag from build scripts.
 
 ## [1.0.1]
