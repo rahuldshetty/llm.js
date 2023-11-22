@@ -2,7 +2,7 @@ import {action} from "./actions.js";
 
 import * as models from "./models.js" ;
 
-class GGML{
+class LLM{
     // callback have to be defined before load_worker
     constructor(
         type,
@@ -135,7 +135,8 @@ class GGML{
             top_p = 0.9,
             temp = 1.0,
             repeat_last_n = 64,
-            repeat_penalty = 1.176
+            repeat_penalty = 1.176,
+            context_size = 512
     }={}){        
         this.worker.postMessage({
             event: action.RUN_MAIN,
@@ -146,9 +147,10 @@ class GGML{
             top_p,
             temp,
             repeat_last_n,
-            repeat_penalty
+            repeat_penalty,
+            context_size
         });
     }
 }
 
-export { GGML }
+export { LLM }

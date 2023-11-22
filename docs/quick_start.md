@@ -1,12 +1,12 @@
 # Quick Start
 
-Download and extract latest [release](https://github.com/rahuldshetty/ggml.js/releases) of ggml.js package to your web project.
+Download and extract the latest [release](https://github.com/rahuldshetty/llm.js/releases) of the llm.js package to your web project. 📦💻
 
 After extracting the zip file, you will find the package structure like this:
 
 ```
 .
-└── ggml.js/
+└── llm.js/
     ├── wasm/
     │   ├── dollyv2.js
     │   ├── gpt2.js
@@ -16,7 +16,7 @@ After extracting the zip file, you will find the package structure like this:
     └── ...
 ```
 
-The  `ggml.js` file is the entry point to the model wrapper.
+The `llm.js` file is the entry point to the model wrapper.
 
 Let us create a simple HTML file.
 
@@ -35,12 +35,12 @@ Let us create a simple HTML file.
 </html>
 ```
 
-Let's define a JS script file to load model with ggml.js library and run ML inference on browser.
+Let's define a JS script file to load model with llm.js library and run LLM inference on browser.
 
 `script.js`
 ```js
-// Import GGML wrapper
-import {GGML} from "ggml.js/ggml.js";
+// Import LLM app
+import {LLM} from "llm.js/llm.js";
 
 // State variable to track model load status
 var model_loaded = false;
@@ -55,8 +55,8 @@ const on_loaded = () => {
 const write_result = (text) => { document.getElementById('result').innerText += text + "\n" }
 const run_complete = () => {}
 
-// GGML wrapper
-const app = new GGML(
+// Configure LLM app
+const app = new LLM(
      // Type of Model
     'STARCODER',    
 

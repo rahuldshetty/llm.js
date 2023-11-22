@@ -1,9 +1,9 @@
 {
-  "name": "ggml.js",
-  "version": "1.0.1",
-  "description": "GGML models for Web",
+  "name": "llm.js",
+  "version": "1.0.2",
+  "description": "Run LLM models directly on browser.",
   "type": "module",
-  "main": "dist/ggml.js",
+  "main": "dist/llm.js",
   "keywords": [
     "AI",
     "ML",
@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rahuldshetty/ggml.js.git"
+    "url": "git+https://github.com/rahuldshetty/llm.js.git"
   },
   "author": "Rahul D Shetty",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rahuldshetty/ggml.js/issues"
+    "url": "https://github.com/rahuldshetty/llm.js/issues"
   },
-  "homepage": "https://github.com/rahuldshetty/ggml.js#readme",
+  "homepage": "https://github.com/rahuldshetty/llm.js#readme",
   "devDependencies": {
     "@babel/core": "^7.22.9",
     "@babel/plugin-proposal-class-properties": "^7.18.6",

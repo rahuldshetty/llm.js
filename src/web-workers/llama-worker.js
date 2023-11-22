@@ -56,19 +56,21 @@ const run_main = (
     top_p,
     temp,
     repeat_last_n,
-    repeat_penalty
+    repeat_penalty,
+    context_size
 ) => {
     console.log(seed)
     const args = [
         "-p", prompt.toString(),
         "-n", max_token_len.toString(),
+        "-c", context_size.toString(),
         "--top_k", top_k.toString(),
         "--top_p", top_p.toString(),
         "--temp", temp.toString(),
         "-m", model_path
     ];
 
-    console.log('model: calling main...')
+    console.log('model: calling main with prompt: ' + prompt.toString())
     module['callMain'](args);
 
     postMessage({
@@ -96,7 +98,8 @@ self.addEventListener('message', (e) => {
                 e.data.top_p,
                 e.data.temp,
                 e.data.repeat_last_n,
-                e.data.repeat_penalty
+                e.data.repeat_penalty,
+                e.data.context_size
             )
             break;
         }

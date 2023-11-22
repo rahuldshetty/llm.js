@@ -1,29 +1,26 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index d085bc8..3c6ff31 100644
+index f32df5f..efce394 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -584,6 +584,7 @@ if (LLAMA_BUILD_TESTS AND NOT CMAKE_JS_VERSION)
- endif ()
- 
- if (LLAMA_BUILD_EXAMPLES)
--    add_subdirectory(examples)
-     add_subdirectory(pocs)
- endif()
+@@ -781,6 +781,7 @@ endif()
+ #
+
+ add_subdirectory(common)
++add_subdirectory(examples/main)
+
+ if (LLAMA_BUILD_TESTS AND NOT CMAKE_JS_VERSION)
+     include(CTest)
+diff --git a/examples/main/main.cpp b/examples/main/main.cpp
+index 31ec8ca..029a36c 100644
+--- a/examples/main/main.cpp
++++ b/examples/main/main.cpp
+@@ -847,6 +847,9 @@ int main(int argc, char ** argv) {
+         llama_save_session_file(ctx, path_session.c_str(), session_tokens.data(), session_tokens.size());
+     }
+
++    printf("\n");
++    fflush(stdout);
 +
-+add_subdirectory(examples)
-diff --git a/examples/CMakeLists.txt b/examples/CMakeLists.txt
-index a7b2677..af5c190 100644
---- a/examples/CMakeLists.txt
-+++ b/examples/CMakeLists.txt
-@@ -31,9 +31,10 @@ target_link_libraries(${TARGET} PRIVATE llama)
- 
- include_directories(${CMAKE_CURRENT_SOURCE_DIR})
- 
-+add_subdirectory(main)
-+
- if (EMSCRIPTEN)
- else()
--    add_subdirectory(main)
-     add_subdirectory(quantize)
-     add_subdirectory(quantize-stats)
-     add_subdirectory(perplexity)
+     llama_print_timings(ctx);
+     write_logfile(ctx, params, model, input_tokens, output_ss.str(), output_tokens);
+

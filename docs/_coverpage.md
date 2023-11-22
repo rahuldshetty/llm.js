@@ -2,13 +2,13 @@
 
 <!-- <img src="_media/logo.png" width="400"> 1.0.0 -->
 
-# ggml.js <small>1.0.0</small>
+# llm.js <small>1.0.2</small>
 
-> Run [ggml](https://github.com/ggerganov/ggml.git) & [llama2.c](https://github.com/karpathy/llama2.c) ML models directly on your browser
+> Run Large-Language Models (LLMs) 🚀 directly in your browser!
 
 - Serverless & Edge AI 🤖
 - JavaScript ES6 Package 🧰
 - Powered by WebAssembly
 
-[GitHub](https://github.com/rahuldshetty/ggml.js.git)
-[Get Started](#ggmljs)
+[GitHub](https://github.com/rahuldshetty/llm.js.git)
+[Get Started](#llmjs)

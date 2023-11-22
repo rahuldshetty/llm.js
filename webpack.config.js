@@ -6,13 +6,13 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default {
-  // entry: path.resolve(__dirname, "src/ggml.js"),
+  // entry: path.resolve(__dirname, "src/llm.js"),
   entry: {
-    ggml: path.resolve(__dirname, "src/ggml.js"),
+    llm: path.resolve(__dirname, "src/llm.js"),
   },
   output: {
     path: path.resolve(__dirname, "dist"),
-    // filename: "ggml.js",
+    // filename: "llm.js",
     filename: "[name].js",
     library: {
       type: "module",

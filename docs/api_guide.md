@@ -1,21 +1,21 @@
 # API Reference
 
-## GGML (Class)
+## LLM (Class)
 
-Wrapper class for GGML Models.
+Wrapper class for LLM Models.
 
 Usage:
 ```js
-import {GGML} from "ggml.js/ggml.js";
+import {LLM} from "llm.js/llm.js";
 ```
 
 ### constructor (Method)
 
-Model Initializer called during GGML object creation
+Model Initializer called during LLM app creation.
 
 Parameter               | Description | Example
 ---                     |           ---               | ---
-type                    | Type of Model. <br> Values:<br>- LLAMA2<br>- DOLLY_V2<br>- GPT_2<br>- GPT_J<br>- GPT_NEO_X<br>- MPT<br>- REPLIT<br>- STARCODER  | 'STARCODER'
+type                    | Type of Model. <br> Values:<br>- LLAMA<br>- LLAMA2<br>- DOLLY_V2<br>- GPT_2<br>- GPT_J<br>- GPT_NEO_X<br>- MPT<br>- REPLIT<br>- STARCODER  | 'STARCODER'
 url                     | Model URL | [./starcoder.bin](https://huggingface.co/rahuldshetty/ggml.js/resolve/main/starcoder.bin)
 init_callback           | Callback method to run after model initialization. | `() => { console.log('model loaded') }`
 write_result_callback   | Callback method to print model result. | `(text) => { console.log('model result:' + test) }`
@@ -24,7 +24,7 @@ tokenizer_url    | Tokenizer URL (Support only for LLaMa2.c model) | [./tokenize
 
 Usage:
 ```js
-const app = new GGML(
+const app = new LLM(
     'STARCODER',
     'https://huggingface.co/rahuldshetty/ggml.js/resolve/main/starcoder.bin',
     ()=>{},
@@ -35,10 +35,10 @@ const app = new GGML(
 
 ### load_worker (Method)
 
-Download and load model binary into WebAssembly's VM File System.
+Download and load model binary into WebAssembly's VM File System ⏬📂.
 
 - Doesn't take in any parameters.
-- This method should be called before the *run* method.
+- This method should be called before the run method. 🔄
 
 Usage:
 ```js
@@ -48,10 +48,11 @@ app.load_worker();
 
 ### run (Method)
 
-Call this method to run model inference to generate text. 
+Call this method to run model inference and generate text 📝.
 
-- This method takes Object Parameter as Input.
-- Model output can be captured by *write_result_callback* constructor method.
+- This method takes an Object Parameter as Input ⚙️.
+- Model output can be captured by the write_result_callback constructor method. 
+
 
 Parameter                | Description | Example
 ---                      |           ---               | ---
@@ -60,6 +61,7 @@ max_token_len (number)   | Maximum length of tokens to output.  |  (Default: 50)
 top_k (number)           | No. of tokens to consider for model sampling.  | (Default: 40)
 top_p (number)           | Cumulative probability limits for the samples tokens to consider.  | (Default: 0.9)
 temp (number)            | Parameter to control distribution of model sampling. | (Default: 1.0)
+context_size (number)   **(ONLY FOR TYPE: LLAMA)**         | Set total *context_size* for the model. | (Default: 512)
 
 
 Usage:
