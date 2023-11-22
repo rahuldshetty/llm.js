@@ -8,7 +8,7 @@
    <img alt="stars" src="https://img.shields.io/github/stars/rahuldshetty/llm.js?style=social">
 </p>
 
-# llm.js
+# LLM.js
 
 > Run Large-Language Models (LLMs) 🚀 directly in your browser!
 

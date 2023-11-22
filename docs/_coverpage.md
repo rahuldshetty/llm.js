@@ -2,7 +2,7 @@
 
 <!-- <img src="_media/logo.png" width="400"> 1.0.0 -->
 
-# llm.js <small>1.0.2</small>
+# LLM.js <small>1.0.2</small>
 
 > Run Large-Language Models (LLMs) 🚀 directly in your browser!
 
