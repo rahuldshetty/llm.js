@@ -12,6 +12,10 @@
 
 > Run Large-Language Models (LLMs) 🚀 directly in your browser!
 
+<p align="center">
+    <img alt="Sample" src="https://raw.githubusercontent.com/rahuldshetty/llm.js/master/docs/_media/demo.gif">
+</p>
+
 Example projects🌐✨: [Live Demo](https://rahuldshetty.github.io/llm.js-examples/)
 
 Learn More: [Documentation](https://rahuldshetty.github.io/llm.js/) 
