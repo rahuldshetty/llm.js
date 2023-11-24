@@ -16,7 +16,7 @@
     <img alt="Sample" src="https://raw.githubusercontent.com/rahuldshetty/llm.js/master/docs/_media/demo.gif">
 </p>
 
-Example projects🌐✨: [Live Demo](https://rahuldshetty.github.io/llm.js-examples/)
+Example projects🌐✨: [Live Demo](https://rahuldshetty.github.io/ggml.js-examples/)
 
 Learn More: [Documentation](https://rahuldshetty.github.io/llm.js/) 
 
