@@ -1,13 +1,29 @@
-export function loadBinaryResource(url, callback) {
+export async function loadBinaryResource(url, callback) {
+    let cache = null;
+
+    if (window.caches) {
+        const cacheName = "llm.js-cache";
+        cache = await window.caches.open(cacheName);
+        const cachedResponse = await cache.match(url);
+
+        if (cachedResponse) {
+            const data = await cachedResponse.arrayBuffer();
+            const byteArray = new Uint8Array(data);
+            callback(byteArray);
+            return;
+        }
+    }
+
     const req = new XMLHttpRequest();
     req.open("GET", url, true);
     req.responseType = "arraybuffer";
 
-    req.onload = (event) => {
+    req.onload = async () => {
         const arrayBuffer = req.response; // Note: not req.responseText
         if (arrayBuffer) {
             const byteArray = new Uint8Array(arrayBuffer);
-            callback(byteArray)
+            if (cache) await cache.put(url, new Response(arrayBuffer));
+            callback(byteArray);
         }
     };
 
