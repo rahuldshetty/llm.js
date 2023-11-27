@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.3] (alpha)
+
+### Added
+
+- Model Caching: Persisting model files in WebWorker's cache to avoid re-downloading model on every load. Thanks to [PR](https://github.com/rahuldshetty/llm.js/pull/3) from [@felladrin](https://github.com/felladrin). 
 
 ## [1.0.2]
 
