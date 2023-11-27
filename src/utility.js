@@ -1,8 +1,13 @@
-export async function loadBinaryResource(url, callback) {
-    let cache = null;
+const cacheName = "llm.js-cache";
 
-    if (window.caches) {
-        const cacheName = "llm.js-cache";
+export async function loadBinaryResource(url, callback) {
+    let cache = null, window = self;
+
+    // Try to find if the model data is cached in Web Worker memory.
+    if (typeof window === "undefined") {
+        console.log("Oops, `window` is not defined")
+    }
+    else if(window && window.caches) {
         cache = await window.caches.open(cacheName);
         const cachedResponse = await cache.match(url);
 
@@ -18,7 +23,7 @@ export async function loadBinaryResource(url, callback) {
     req.open("GET", url, true);
     req.responseType = "arraybuffer";
 
-    req.onload = async () => {
+    req.onload = async (_) => {
         const arrayBuffer = req.response; // Note: not req.responseText
         if (arrayBuffer) {
             const byteArray = new Uint8Array(arrayBuffer);
