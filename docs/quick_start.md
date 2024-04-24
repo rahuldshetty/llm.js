@@ -26,10 +26,10 @@ Let us create a simple HTML file.
 <html lang="en">
     <body>
 
-    <pre>
-        <div id="result"></code>
-    </pre>
-    
+    <div>
+        <pre><code id="result"></code></pre>
+    </div>
+
     <script type="module" src="script.js"></script>
     </body>
 </html>
