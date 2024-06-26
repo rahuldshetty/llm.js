@@ -1,6 +1,7 @@
-import {action} from "./actions.js";
+import { action } from "./actions.js";
+import { loadBinaryResource } from "./utility.js";
 
-import * as models from "./models.js" ;
+import * as  model from "./models.js"; 
 
 class LLM{
     // callback have to be defined before load_worker
@@ -9,88 +10,21 @@ class LLM{
         url,
         init_callback,
         write_result_callback,
-        on_complete_callback,
-        tokenizer_url = null
+        on_complete_callback
     ){
         this.type = type;
         this.url = url;
         this.init_callback = init_callback;   // called back when model is loaded
         this.write_result_callback = write_result_callback; // Expectes text parameter and will be called when model generates result.
         this.on_complete_callback = on_complete_callback;
-        this.tokenizer_url = tokenizer_url
     }
     
     load_worker() {
         switch(this.type){
-            case models.MODELS.DOLLY_V2: {
-                this.worker = new Worker(
-                    // Webpack doesn't like variable/const to hold paths. Don't know why
-                    new URL("./web-workers/dollyv2-worker.js", import.meta.url)
-                    , {type: 'module'}
-                );
-                break;
-            }
 
-            case models.MODELS.GPT_2: {
+            case model.MODELS.GGUF_CPU: {
                 this.worker = new Worker(
-                    new URL("./web-workers/gpt2-worker.js", import.meta.url)
-                    , {type: 'module'}
-                );
-                break;
-            }
-
-            case models.MODELS.GPT_J: {
-                this.worker = new Worker(
-                    new URL("./web-workers/gptj-worker.js", import.meta.url)
-                    , {type: 'module'}
-                );
-                break;
-            }
-
-            case models.MODELS.GPT_NEO_X: {
-                this.worker = new Worker(
-                    new URL("./web-workers/gptneox-worker.js", import.meta.url)
-                    , {type: 'module'}
-                );
-                break;
-            }
-
-            case models.MODELS.MPT: {
-                this.worker = new Worker(
-                    new URL("./web-workers/mpt-worker.js", import.meta.url)
-                    , {type: 'module'}
-                );
-                break;
-            }
-
-            case models.MODELS.REPLIT: {
-                this.worker = new Worker(
-                    new URL("./web-workers/replit-worker.js", import.meta.url)
-                    , {type: 'module'}
-                );
-                break;
-            }
-
-            case models.MODELS.STARCODER: {
-                this.worker = new Worker(
-                    new URL("./web-workers/starcoder-worker.js", import.meta.url)
-                    , {type: 'module'}
-                );
-                break;
-            }
-
-
-            case models.MODELS.LLAMA: {
-                this.worker = new Worker(
-                    new URL("./web-workers/llama-worker.js", import.meta.url)
-                    , {type: 'module'}
-                );
-                break;
-            }
-
-            case models.MODELS.LLAMA2: {
-                this.worker = new Worker(
-                    new URL("./web-workers/llama2-worker.js", import.meta.url)
+                    new URL("./web-workers/llamacpp-cpu-worker.js", import.meta.url)
                     , {type: 'module'}
                 );
                 break;
@@ -120,11 +54,14 @@ class LLM{
             }
         };
 
-        this.worker.postMessage({
-            event: action.LOAD,
-            url: this.url,
-            tokenizer_url: this.tokenizer_url
+
+        loadBinaryResource(this.url, (bytes)=>{
+            this.worker.postMessage({
+                event: action.LOAD,
+                model_bytes: bytes
+            });
         });
+        
     }
 
     run({

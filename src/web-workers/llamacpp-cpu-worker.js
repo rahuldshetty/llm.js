@@ -1,12 +1,12 @@
 import {action} from "../actions.js";
-import Module from "llama2";
-import {loadBinaryResource, is_model_output, extract_file_name} from "../utility.js"
+import {is_model_output} from "../utility.js"
+
+import Module from "llamacpp-cpu";
 
 // WASM Module
 let module;
 
 const model_path = "/models/model.bin";
-const tokenizer_path = "/models/tokenizer.bin";
 
 // Function to send model line result
 const write_result_fn = (text) => {
@@ -23,7 +23,7 @@ const write_result_fn = (text) => {
 
 // Function to initialize worker 
 // and download model file
-const init_worker_fn = async (model_path, tokenizer_url) => {
+const init_worker_fn = async (model_bytes) => {
     const args = {
         'noInitialRun': true,
         'print': write_result_fn
@@ -31,38 +31,18 @@ const init_worker_fn = async (model_path, tokenizer_url) => {
 
     module = await Module(args);
 
-    const initTokenizerCallback = (bytes) => {
-        // load tokenizer
-        module['FS_createDataFile']('/models', 'tokenizer.bin', bytes, true, true, true);
-        
-        // update callback action to worker main thread
-        postMessage({
-            event: action.INITIALIZED
-        });
+    // create virtual fs folder for storing model bins
+    module['FS_createPath']("/", "models", true, true);
 
-        console.log('tokenizer loaded')
-    }
+    // load model
+    module['FS_createDataFile']('/models', 'model.bin', model_bytes, true, true, true);
+    
+    // update callback action to worker main thread
+    postMessage({
+        event: action.INITIALIZED
+    });
 
-    const initModelCallback = (bytes) => {
-        // create virtual fs folder for storing model bins
-        module['FS_createPath']("/", "models", true, true);
-
-        // load model
-        module['FS_createDataFile']('/models', 'model.bin', bytes, true, true, true);
-        
-        console.log('model: Loaded')
-
-        if(tokenizer_url != null){
-            loadBinaryResource(tokenizer_url, initTokenizerCallback);
-        }
-        else {
-            postMessage({
-                event: action.INITIALIZED
-            });
-        }
-    }
-
-    loadBinaryResource(model_path, initModelCallback)
+    console.log('Model loaded successfully.');
 }
 
 const run_main = (
@@ -73,19 +53,21 @@ const run_main = (
     top_p,
     temp,
     repeat_last_n,
-    repeat_penalty
+    repeat_penalty,
+    context_size
 ) => {
     console.log(seed)
     const args = [
-        model_path,
-        "-i", prompt.toString(),
+        "-p", prompt.toString(),
         "-n", max_token_len.toString(),
-        "-p", top_p.toString(),
-        "-t", temp.toString(),
-        "-v", tokenizer_path
+        "-c", context_size.toString(),
+        "--top_k", top_k.toString(),
+        "--top_p", top_p.toString(),
+        "--temp", temp.toString(),
+        "-m", model_path
     ];
 
-    console.log('model: calling main...')
+    console.log('model: calling main with prompt: ' + prompt.toString())
     module['callMain'](args);
 
     postMessage({
@@ -99,7 +81,7 @@ self.addEventListener('message', (e) => {
     switch(e.data.event){
         // load event
         case action.LOAD: {
-            init_worker_fn(e.data.url, e.data.tokenizer_url);
+            init_worker_fn(e.data.model_bytes);
             break;
         }
 
@@ -113,7 +95,8 @@ self.addEventListener('message', (e) => {
                 e.data.top_p,
                 e.data.temp,
                 e.data.repeat_last_n,
-                e.data.repeat_penalty
+                e.data.repeat_penalty,
+                e.data.context_size
             )
             break;
         }

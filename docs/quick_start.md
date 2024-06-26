@@ -8,11 +8,8 @@ After extracting the zip file, you will find the package structure like this:
 .
 └── llm.js/
     ├── wasm/
-    │   ├── dollyv2.js
-    │   ├── gpt2.js
-    │   └── ...
-    ├── ggml.js
-    ├── 19.js
+    │   └── llamacpp-cpu.js
+    ├── llm.js
     └── ...
 ```
 
@@ -58,10 +55,10 @@ const run_complete = () => {}
 // Configure LLM app
 const app = new LLM(
      // Type of Model
-    'STARCODER',    
+    'GGUF_CPU',
 
     // Model URL
-    'https://huggingface.co/rahuldshetty/ggml.js/resolve/main/starcoder.bin', 
+    'https://huggingface.co/RichardErkhov/bigcode_-_tiny_starcoder_py-gguf/resolve/main/tiny_starcoder_py.Q8_0.gguf',
 
     // Model Load callback function
     on_loaded,          

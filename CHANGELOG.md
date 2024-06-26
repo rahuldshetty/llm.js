@@ -4,11 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.3] (alpha)
+## [2.0.0]
 
-### Added
+### Changes
 
-- Model Caching: Persisting model files in WebWorker's cache to avoid re-downloading model on every load. Thanks to [PR](https://github.com/rahuldshetty/llm.js/pull/3) from [@felladrin](https://github.com/felladrin). 
+- Introducing new model type: GGUF_CPU to support running gguf compiled models on CPU with LLM.js
+- Bumped up Llama.cpp worker to build commit [dd047b4](https://github.com/ggerganov/llama.cpp/tree/dd047b476c8b904e0c25e5dbc5bee6ffde2f6e17)
+- Model Caching: Persisting model files in WebWorker's cache to avoid re-downloading model on every load. Thanks to [PR](https://github.com/rahuldshetty/llm.js/pull/3) from [@felladrin](https://github.com/felladrin).
+
+### Removes
+
+- Deprecating model types: LLAMA2, DOLLY_V2, GPT_2, GPT_J, GPT_NEO_X, MPT, REPLIT, STARCODER
 
 ## [1.0.2]
 
