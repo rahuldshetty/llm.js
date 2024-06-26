@@ -14,25 +14,13 @@ In order to build llm.js, you need to have the following pre-requisites 🛠️ 
     cd llm.js
     ```
 
-2) Run the ggml build script to generate WASM files:
+2) Run the llama build script to generate WASM files:
     ```
-    ./build-ggml.sh
+    sh scripts/build-llama-cpp-wasm.sh
     ```
 
-This script will download the ggml repository and apply llm.js patches to generate WebAssembly bundles for GGML models.
-You can find the WebAssembly JS files in `build/bin/bin/` location.
-
-## Build WebAssembly bundles for Tiny-LLAMA2 models
-
-1) Run the llama2 build script to generate WASM files:
-    ```
-    ./build-llama2-c.sh
-
-## Build WebAssembly bundles for LLAMA models
-
-1) Run the llama build script to generate WASM files:
-    ```
-    ./build-llama-cpp.sh
+This script will download the llama.cpp repository and apply llm.js patches to generate WebAssembly bundles.
+You can find the WebAssembly JS files in `build/llama-bin/bin/` location.
 
 ## Package llm.js
 

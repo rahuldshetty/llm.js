@@ -15,18 +15,17 @@ Model Initializer called during LLM app creation.
 
 Parameter               | Description | Example
 ---                     |           ---               | ---
-type                    | Type of Model. <br> Values:<br>- LLAMA<br>- LLAMA2<br>- DOLLY_V2<br>- GPT_2<br>- GPT_J<br>- GPT_NEO_X<br>- MPT<br>- REPLIT<br>- STARCODER  | 'STARCODER'
-url                     | Model URL | [./starcoder.bin](https://huggingface.co/rahuldshetty/ggml.js/resolve/main/starcoder.bin)
+type                    | Type of Model. <br> Values:<br>- GGUF_CPU<br>  | 'GGUF_CPU'
+url                     | Model URL | [./tiny_starcoder_py.Q8_0.gguf](https://huggingface.co/RichardErkhov/bigcode_-_tiny_starcoder_py-gguf/resolve/main/tiny_starcoder_py.Q8_0.gguf)
 init_callback           | Callback method to run after model initialization. | `() => { console.log('model loaded') }`
 write_result_callback   | Callback method to print model result. | `(text) => { console.log('model result:' + test) }`
 on_complete_callback    | Callback method to run after model run. | `() => { console.log('model execution completed') }`
-tokenizer_url    | Tokenizer URL (Support only for LLaMa2.c model) | [./tokenizer.url](https://huggingface.co/rahuldshetty/ggml.js/resolve/main/llama2/tokenizer.bin) (Default: null)
 
 Usage:
 ```js
 const app = new LLM(
-    'STARCODER',
-    'https://huggingface.co/rahuldshetty/ggml.js/resolve/main/starcoder.bin',
+    'GGUF_CPU',
+    'https://huggingface.co/RichardErkhov/bigcode_-_tiny_starcoder_py-gguf/resolve/main/tiny_starcoder_py.Q8_0.gguf',
     ()=>{},
     (text)=>{console.log(text)},
     ()=>{}
@@ -35,10 +34,10 @@ const app = new LLM(
 
 ### load_worker (Method)
 
-Download and load model binary into WebAssembly's VM File System ⏬📂.
+Download and load model binary into WebAssembly's File System ⏬📂.
 
-- Doesn't take in any parameters.
-- This method should be called before the run method. 🔄
+- Models are cached in the browser window.
+- After the model initialization *init_callback* is called.
 
 Usage:
 ```js
@@ -48,11 +47,11 @@ app.load_worker();
 
 ### run (Method)
 
-Call this method to run model inference and generate text 📝.
+Call this method to run your prompts and generate response 📝.
 
 - This method takes an Object Parameter as Input ⚙️.
-- Model output can be captured by the write_result_callback constructor method. 
-
+- Model output can be captured by the *write_result_callback* method.
+- Once inference is completed, then the *on_complete_callback* is called. 
 
 Parameter                | Description | Example
 ---                      |           ---               | ---
@@ -61,7 +60,7 @@ max_token_len (number)   | Maximum length of tokens to output.  |  (Default: 50)
 top_k (number)           | No. of tokens to consider for model sampling.  | (Default: 40)
 top_p (number)           | Cumulative probability limits for the samples tokens to consider.  | (Default: 0.9)
 temp (number)            | Parameter to control distribution of model sampling. | (Default: 1.0)
-context_size (number)   **(ONLY FOR TYPE: LLAMA)**         | Set total *context_size* for the model. | (Default: 512)
+context_size (number)      | Set total *context_size* for the model. | (Default: 512)
 
 
 Usage:

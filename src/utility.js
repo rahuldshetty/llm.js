@@ -1,4 +1,4 @@
-const cacheName = "llm.js-cache";
+const cacheName = "llmjs-cache";
 
 export async function loadBinaryResource(url, callback) {
     let cache = null, window = self;

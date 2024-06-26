@@ -2,19 +2,26 @@
 
 Run Large-Language Models (LLMs) 🚀 directly in your browser!
 
-LLM.js provides JavaScript bindings for interacting with quantized large language models (GGUF/GGML/tiny-llama2).
+LLM.js provides JavaScript bindings for interacting with quantized large language models (GGUF).
 
-Example projects🌐✨: [Live Demo](https://rahuldshetty.github.io/ggml.js-examples/)
+Example projects🌐✨: [Live Demo](https://rahuldshetty.github.io/llm.js-examples/)
 
 Models Supported:
-- [llama-cpp (GGUF/GGML)](https://github.com/ggerganov/llama.cpp)
-- [LLaMa 2](https://github.com/karpathy/llama2.c)
-- [Dolly v2](https://github.com/ggerganov/ggml/tree/master/examples/dolly-v2) 
-- [GPT2](https://github.com/ggerganov/ggml/tree/master/examples/gpt-2)
-- [GPT J](https://github.com/ggerganov/ggml/tree/master/examples/gpt-j)
-- [GPT NEO X](https://github.com/ggerganov/ggml/tree/master/examples/gpt-neox)
-- [MPT](https://github.com/ggerganov/ggml/tree/master/examples/mpt)
-- [Replit](https://github.com/ggerganov/ggml/tree/master/examples/replit)
-- [StarCoder](https://github.com/ggerganov/ggml/tree/master/examples/starcoder)
+-  [TinyLLaMA Series - 1,2,3🦙](https://huggingface.co/TinyLlama)
+-  [GPT-2](https://huggingface.co/gpt2)
+-  [Tiny Mistral Series](https://huggingface.co/Locutusque/TinyMistral-248M)
+-  [Tiny StarCoder Py](https://huggingface.co/bigcode/tiny_starcoder_py)
+-  [Qwen Models](https://huggingface.co/Qwen)
+-  [TinySolar](https://huggingface.co/upstage/TinySolar-248m-4k-code-instruct)
+-  [Pythia](https://github.com/EleutherAI/pythia)
+-  [Mamba](https://huggingface.co/state-spaces/mamba-130m-hf)
+and much more✨ 
 
-*New models/formats coming soon*⏰
+## Features
+
+- Run inference directly on browser (even on smartphones)
+- Developed in pure JavaScript
+- Web Worker to perform background tasks (model downloading/inference)
+- Model Caching support
+- Pre-built [packages](https://github.com/rahuldshetty/llm.js/releases) to directly plug-and-play into your web apps.
+

@@ -19,16 +19,7 @@ export default {
     },
   },
   externals: {
-    dollyv2: "./wasm/dollyv2.js",
-    "gpt-2": "./wasm/gpt-2.js",
-    "gpt-j": "./wasm/gpt-j.js",
-    "gpt-neox": "./wasm/gpt-neox.js",
-    mpt: "./wasm/mpt.js",
-    replit: "./wasm/replit.js",
-    starcoder: "./wasm/starcoder.js",
-
-    llama: "./wasm/llama.js",
-    llama2: "./wasm/llama2.js",
+    "llamacpp-cpu": "./wasm/llamacpp-cpu.js",
   },
   module: {
     rules: [
@@ -36,9 +27,7 @@ export default {
         test: /\.(js)$/,
         exclude: [
           /node_modules/,
-          /\\build\\ggml-bin\\bin\\*\.js$/,
           /\\build\\llama-bin\\bin\\*\.js$/,
-          /\\build\\llama2\\*\.js$/,
         ],
         use: "babel-loader",
       },
@@ -49,17 +38,9 @@ export default {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: "build/ggml-bin/bin/*.js",
-          to: "wasm/[name].js",
-        },
-        {
-          from: "build/llama-bin/bin/main.js",
-          to: "wasm/llama.js",
-        },
-        {
-          from: "build/llama2/*.js",
-          to: "wasm/[name].js",
-        },
+          from: "build/llama-bin/bin/llama-cli.js",
+          to: "wasm/llamacpp-cpu.js",
+        }
       ],
     }),
   ],

@@ -1,5 +1,5 @@
 <div align="center" style="display:flex; align-items:center;justify-content: center;background:#e1e1e1;color:#0f0f0f;padding:50px;">
-    <img alt="llm.js logo" src="https://raw.githubusercontent.com/rahuldshetty/llm.js/master/docs/_media/logo.png" width="350">
+    <img alt="llm.js logo" src="https://raw.githubusercontent.com/rahuldshetty/llm.js/master/docs/_media/logo.jpg">
 </div>
 
 <p align="center">
@@ -16,22 +16,28 @@
     <img alt="Sample" src="https://raw.githubusercontent.com/rahuldshetty/llm.js/master/docs/_media/demo.gif">
 </p>
 
-Example projects🌐✨: [Live Demo](https://rahuldshetty.github.io/ggml.js-examples/)
+Example projects🌐✨: [Live Demo](https://rahuldshetty.github.io/llm.js-examples/)
 
 Learn More: [Documentation](https://rahuldshetty.github.io/llm.js/) 
 
 Models Supported:
-- [llama-cpp (GGUF/GGML)](https://github.com/ggerganov/llama.cpp)
-- [LLaMa 2](https://github.com/karpathy/llama2.c)
-- [Dolly v2](https://github.com/ggerganov/ggml/tree/master/examples/dolly-v2) 
-- [GPT2](https://github.com/ggerganov/ggml/tree/master/examples/gpt-2)
-- [GPT J](https://github.com/ggerganov/ggml/tree/master/examples/gpt-j)
-- [GPT NEO X](https://github.com/ggerganov/ggml/tree/master/examples/gpt-neox)
-- [MPT](https://github.com/ggerganov/ggml/tree/master/examples/mpt)
-- [Replit](https://github.com/ggerganov/ggml/tree/master/examples/replit)
-- [StarCoder](https://github.com/ggerganov/ggml/tree/master/examples/starcoder)
+-  [TinyLLaMA Series - 1,2,3🦙](https://huggingface.co/TinyLlama)
+-  [GPT-2](https://huggingface.co/gpt2)
+-  [Tiny Mistral Series](https://huggingface.co/Locutusque/TinyMistral-248M)
+-  [Tiny StarCoder Py](https://huggingface.co/bigcode/tiny_starcoder_py)
+-  [Qwen Models](https://huggingface.co/Qwen)
+-  [TinySolar](https://huggingface.co/upstage/TinySolar-248m-4k-code-instruct)
+-  [Pythia](https://github.com/EleutherAI/pythia)
+-  [Mamba](https://huggingface.co/state-spaces/mamba-130m-hf)
+and much more✨ 
 
-*New models/formats coming soon*⏰
+## Features
+
+- Run inference directly on browser (even on smartphones)
+- Developed in pure JavaScript
+- Web Worker to perform background tasks (model downloading/inference)
+- Model Caching support
+- Pre-built [packages](https://github.com/rahuldshetty/llm.js/releases) to directly plug-and-play into your web apps.
 
 ## Installation
 
@@ -59,10 +65,10 @@ const run_complete = () => {}
 // Configure LLM app
 const app = new LLM(
      // Type of Model
-    'STARCODER',    
+    'GGUF_CPU',
 
     // Model URL
-    'https://huggingface.co/rahuldshetty/ggml.js/resolve/main/starcoder.bin', 
+    'https://huggingface.co/RichardErkhov/bigcode_-_tiny_starcoder_py-gguf/resolve/main/tiny_starcoder_py.Q8_0.gguf',
 
     // Model Load callback function
     on_loaded,          
