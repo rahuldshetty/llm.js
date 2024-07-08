@@ -1,8 +1,8 @@
 <!-- _coverpage.md -->
 
-<img src="_media/logo.jpg" > 2.0.0
+<img src="_media/logo.jpg" > 2.0.1
 
-# LLM.js <small>2.0.0</small>
+# LLM.js <small>2.0.1</small>
 
 > Run Large-Language Models (LLMs) 🚀 directly in your browser!
 

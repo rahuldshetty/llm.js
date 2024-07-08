@@ -1,5 +1,6 @@
 import {action} from "../actions.js";
 import {is_model_output} from "../utility.js"
+import { SchemaConverter }  from '../gbnf_grammar.js';
 
 import Module from "llamacpp-cpu";
 
@@ -54,20 +55,48 @@ const run_main = (
     temp,
     repeat_last_n,
     repeat_penalty,
-    context_size
+    context_size,
+    grammar,
+    json_schema,
+    regex
 ) => {
     console.log(seed)
-    const args = [
-        "-p", prompt.toString(),
+    let args = [
+        "-p", prompt,
+        "-s", seed.toString(),
         "-n", max_token_len.toString(),
         "-c", context_size.toString(),
         "--top_k", top_k.toString(),
         "--top_p", top_p.toString(),
         "--temp", temp.toString(),
+        "--repeat-penalty", repeat_penalty.toString(),
+        "--repeat-last-n", repeat_last_n.toString(),
         "-m", model_path
     ];
 
+    if (grammar == '' && regex != ''){
+        args.push(
+            "--grammar", `root ::= (${
+                regexToGBNF(regex)
+            })`
+        )
+    }
+
+    if (grammar && grammar != ''){
+        args.push(
+            "--grammar", grammar
+        );
+    }
+
+    if (json_schema && json_schema != ''){
+        args.push(
+            "--json-schema", json_schema
+        );
+    }
+
     console.log('model: calling main with prompt: ' + prompt.toString())
+    console.log('args:', args)
+
     module['callMain'](args);
 
     postMessage({
@@ -96,7 +125,10 @@ self.addEventListener('message', (e) => {
                 e.data.temp,
                 e.data.repeat_last_n,
                 e.data.repeat_penalty,
-                e.data.context_size
+                e.data.context_size,
+                e.data.grammar,
+                e.data.json_schema,
+                e.data.regex
             )
             break;
         }
