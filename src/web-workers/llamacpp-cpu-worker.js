@@ -1,6 +1,5 @@
 import {action} from "../actions.js";
 import {is_model_output} from "../utility.js"
-import { SchemaConverter }  from '../gbnf_grammar.js';
 
 import Module from "llamacpp-cpu";
 
@@ -73,14 +72,6 @@ const run_main = (
         "--repeat-last-n", repeat_last_n.toString(),
         "-m", model_path
     ];
-
-    if (grammar == '' && regex != ''){
-        args.push(
-            "--grammar", `root ::= (${
-                regexToGBNF(regex)
-            })`
-        )
-    }
 
     if (grammar && grammar != ''){
         args.push(

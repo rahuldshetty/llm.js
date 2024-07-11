@@ -33,7 +33,8 @@ and much more✨
 
 ## Features
 
-- Run inference directly on browser (even on smartphones)
+- Run inference directly on browser (even on smartphones) with power of WebAssembly
+- Guidance: Structure responses with CFG Grammar and JSON schema
 - Developed in pure JavaScript
 - Web Worker to perform background tasks (model downloading/inference)
 - Model Caching support

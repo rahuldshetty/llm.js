@@ -9,4 +9,3 @@
 - Improve Code structure, wrapper class, etc
 - Move to TypeScript?
 - ONNX model support (transformer.js does it already better, not sure of the effort)
-- 

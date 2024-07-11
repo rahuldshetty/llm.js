@@ -61,9 +61,10 @@ top_k (number)           | No. of tokens to consider for model sampling.  | (Def
 top_p (number)           | Cumulative probability limits for the samples tokens to consider.  | (Default: 0.9)
 temp (number)            | Parameter to control distribution of model sampling. | (Default: 1.0)
 context_size (number)      | Set total *context_size* for the model. | (Default: 512)
-grammar (string)      | Specify a [GBNF grammar](https://github.com/ggerganov/llama.cpp/blob/master/grammars/README.md) to constrain model output to a specific format. | (Default: Not defined)
+grammar (string)      | Specify a [GBNF grammar](https://github.com/ggerganov/llama.cpp/blob/master/grammars/README.md) to constrain model output. | (Default: Not defined)
 json_schema (string)      | Specify a [JSON schema](https://json-schema.org/) to constrain model output. | (Default: Not defined)
 
+For more details on using *grammar* and *json_schema*, check out [Guidance](/guidance.md) documentation. 
 
 Usage:
 ```js

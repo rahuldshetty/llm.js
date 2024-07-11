@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ### Changes
 
-- [JSON Schema](https://json-schema.org/) and [GBNF](https://github.com/ggerganov/llama.cpp/blob/master/grammars/README.md) Grammar Support for model type 'GGUF_CPU'
+- Structured LLM output with [JSON Schema](https://json-schema.org/) and [GBNF](https://github.com/ggerganov/llama.cpp/blob/master/grammars/README.md) Grammar Support for model type 'GGUF_CPU'
 
 ## [2.0.0]
 
