@@ -71,9 +71,12 @@ class LLM{
             top_k = 40,
             top_p = 0.9,
             temp = 1.0,
-            repeat_last_n = 64,
-            repeat_penalty = 1.176,
-            context_size = 512
+            repeat_last_n = 32,
+            repeat_penalty = 1.2,
+            context_size = 256,
+            grammar = '',
+            json_schema = '',
+            regex = ''
     }={}){        
         this.worker.postMessage({
             event: action.RUN_MAIN,
@@ -85,7 +88,10 @@ class LLM{
             temp,
             repeat_last_n,
             repeat_penalty,
-            context_size
+            context_size,
+            grammar,
+            json_schema,
+            regex
         });
     }
 }
